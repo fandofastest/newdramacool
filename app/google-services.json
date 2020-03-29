@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "414086590772",
+    "firebase_url": "https://aerobic-lock-257509.firebaseio.com",
+    "project_id": "aerobic-lock-257509",
+    "storage_bucket": "aerobic-lock-257509.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414086590772:android:2072d01ab070cc4ebeb561",
+        "android_client_info": {
+          "package_name": "com.dramacool.koreanapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414086590772-bq94raoln9ftogmdv08j3at6udehgb5g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSb5JHIc8dHeJG6WPpMXQwPfp5k-_RTXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "414086590772-bq94raoln9ftogmdv08j3at6udehgb5g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
