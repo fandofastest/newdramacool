@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.dramacool.koreanapp"
+    package="com.dramacool.appasian"
     tools:ignore="MissingLeanbackLauncher">
 
 
@@ -21,7 +21,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
-        android:name="com.dramacool.koreanapp.utils.MyAppClass"
+        android:name="com.dramacool.appasian.utils.MyAppClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -31,24 +31,24 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name="com.dramacool.koreanapp.SearchActivity" />
-        <activity android:name="com.dramacool.koreanapp.FirebaseSignUpActivity" />
-        <activity android:name="com.dramacool.koreanapp.EventPaymentStripeActivity" />
+        <activity android:name="com.dramacool.appasian.SearchActivity" />
+        <activity android:name="com.dramacool.appasian.FirebaseSignUpActivity" />
+        <activity android:name="com.dramacool.appasian.EventPaymentStripeActivity" />
 
         <activity
-            android:name="com.dramacool.koreanapp.TestActivity"
+            android:name="com.dramacool.appasian.TestActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.SearchFilterActivity"
+            android:name="com.dramacool.appasian.SearchFilterActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.PapalPaymentActivity"
+            android:name="com.dramacool.appasian.PapalPaymentActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.WebViewActivity"
+            android:name="com.dramacool.appasian.WebViewActivity"
             android:screenOrientation="fullSensor" />
 
         <meta-data
@@ -65,49 +65,49 @@
             android:value="@string/facebook_application_id" />
 
         <activity
-            android:name="com.dramacool.koreanapp.TermsActivity"
+            android:name="com.dramacool.appasian.TermsActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.ReplyActivity"
+            android:name="com.dramacool.appasian.ReplyActivity"
             android:label="@string/title_activity_reply"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.dramacool.koreanapp.ProfileActivity"
+            android:name="com.dramacool.appasian.ProfileActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.PassResetActivity"
+            android:name="com.dramacool.appasian.PassResetActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.SearchResultActivity"
+            android:name="com.dramacool.appasian.SearchResultActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.SignUpActivity"
+            android:name="com.dramacool.appasian.SignUpActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.LoginActivity"
+            android:name="com.dramacool.appasian.LoginActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.DetailsActivity"
+            android:name="com.dramacool.appasian.DetailsActivity"
             android:configChanges="screenLayout|screenSize|orientation"
             android:label="@string/title_activity_details"
             android:theme="@style/AppTheme.NoActionBar" /> <!-- android:configChanges="screenLayout|screenSize|orientation" -->
         <activity
-            android:name="com.dramacool.koreanapp.MainActivity"
+            android:name="com.dramacool.appasian.MainActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.dramacool.koreanapp.SettingsActivity"
+            android:name="com.dramacool.appasian.SettingsActivity"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.SplashScreenActivity"
+            android:name="com.dramacool.appasian.SplashScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="fullSensor">
             <intent-filter>
@@ -117,32 +117,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.dramacool.koreanapp.ItemMovieActivity"
+            android:name="com.dramacool.appasian.ItemMovieActivity"
             android:label="@string/title_activity_item_show"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.dramacool.koreanapp.ItemTVActivity"
+            android:name="com.dramacool.appasian.ItemTVActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.ItemSeriesActivity"
+            android:name="com.dramacool.appasian.ItemSeriesActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.SubscriptionActivity"
+            android:name="com.dramacool.appasian.SubscriptionActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.StripePaymentActivity"
+            android:name="com.dramacool.appasian.StripePaymentActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.PurchasePlanActivity"
+            android:name="com.dramacool.appasian.PurchasePlanActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
-            android:name="com.dramacool.koreanapp.DownloadActivity"
+            android:name="com.dramacool.appasian.DownloadActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
 

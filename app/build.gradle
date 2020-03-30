@@ -23,7 +23,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "com.dramacool.koreanapp"
+        applicationId "com.dramacool.appasian"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1

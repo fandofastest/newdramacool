@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:414086590772:android:2072d01ab070cc4ebeb561",
+        "mobilesdk_app_id": "1:414086590772:android:80f7857818d39cabbeb561",
         "android_client_info": {
-          "package_name": "com.dramacool.koreanapp"
+          "package_name": "com.dramacool.appasian"
         }
       },
       "oauth_client": [
