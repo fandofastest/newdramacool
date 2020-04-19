@@ -49,7 +49,7 @@
         <item>Home</item>
         <item>Movies</item>
         <item>Series</item>
-        <item>Live TV</item>
+<!--        <item>Live TV</item>-->
         <item>Genre</item>
         <item>Country</item>
         <item>Profile</item>
@@ -65,7 +65,7 @@
         <item>outline_home_24</item>
         <item>outline_movie_24</item>
         <item>outline_local_movies_24</item>
-        <item>outline_live_tv_24</item>
+<!--        <item>outline_live_tv_24</item>-->
         <item>outline_folder_24</item>
         <item>outline_outlined_flag_24</item>
         <item>outline_person_24</item>
@@ -81,7 +81,7 @@
         <item>Home</item>
         <item>Movies</item>
         <item>Series</item>
-        <item>Live TV</item>
+<!--        <item>Live TV</item>-->
         <item>Genre</item>
         <item>Country</item>
         <item>Login</item>
@@ -92,7 +92,7 @@
         <item>outline_home_24</item>
         <item>outline_movie_24</item>
         <item>outline_local_movies_24</item>
-        <item>outline_live_tv_24</item>
+<!--        <item>outline_live_tv_24</item>-->
         <item>outline_folder_24</item>
         <item>outline_outlined_flag_24</item>
         <item>outline_lock_24</item>

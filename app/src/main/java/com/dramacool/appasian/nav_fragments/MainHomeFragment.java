@@ -72,13 +72,13 @@ public class MainHomeFragment extends Fragment {
                     case 1:
                         loadFragment(new MoviesFragment());
                         break;
+//                    case 2:
+//                        loadFragment(new LiveTvFragment());
+//                        break;
                     case 2:
-                        loadFragment(new LiveTvFragment());
-                        break;
-                    case 3:
                         loadFragment(new TvSeriesFragment());
                         break;
-                    case 4:
+                    case 3:
                         loadFragment(new FavoriteFragment());
                         break;
 
@@ -98,13 +98,13 @@ public class MainHomeFragment extends Fragment {
                     case 1:
                         loadFragment(new MoviesFragment());
                         break;
+//                    case 2:
+//                        loadFragment(new LiveTvFragment());
+//                        break;
                     case 2:
-                        loadFragment(new LiveTvFragment());
-                        break;
-                    case 3:
                         loadFragment(new TvSeriesFragment());
                         break;
-                    case 4:
+                    case 3:
                         loadFragment(new FavoriteFragment());
                         break;
 
