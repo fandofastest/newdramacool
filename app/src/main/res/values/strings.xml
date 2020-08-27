@@ -6,12 +6,12 @@
     //admob
     <string name="admob_application_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
 
-    <string name="app_name">DramaCool </string>
+    <string name="app_name">KissAsianApp </string>
     <!--app_title for main navigation & home title-->
-    <string name="app_title">DramaCool - Korean Drama App</string>
+    <string name="app_title">KissAsianApp - Korean Drama App</string>
     <string name="app_version">1.0</string>
-    <string name="contact_email">info@dramacool.net</string>
-    <string name="copyright_text">Copyright @ DramaCool \nAll right reserved</string>
+    <string name="contact_email">info@kissasian.net</string>
+    <string name="copyright_text">Copyright @ KissAsianApp \nAll right reserved</string>
     <!-- App -->
     <string name="featured_tv_channels">Featured Tv Channel</string>
     <string name="latest_movie">Latest Movies</string>

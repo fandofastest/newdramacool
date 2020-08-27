@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#f3964f</color>
-    <color name="colorPrimaryDark">#C3783F</color>
+    <color name="colorPrimary">#878787</color>
+    <color name="colorPrimaryDark">#505050</color>
     <color name="colorAccent">#FF5733</color>
 
     <!--for tv-->
