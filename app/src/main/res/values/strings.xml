@@ -84,7 +84,7 @@
 <!--        <item>Live TV</item>-->
         <item>Genre</item>
         <item>Country</item>
-        <item>Login</item>
+<!--        <item>Login</item>-->
         <item>Settings</item>
     </string-array>
 
@@ -95,7 +95,7 @@
 <!--        <item>outline_live_tv_24</item>-->
         <item>outline_folder_24</item>
         <item>outline_outlined_flag_24</item>
-        <item>outline_lock_24</item>
+<!--        <item>outline_lock_24</item>-->
         <item>outline_settings_24</item>
     </string-array>
 

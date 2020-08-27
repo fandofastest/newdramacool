@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.balysv.materialripple.MaterialRippleLayout;
 import com.kiassasian.appasian.DetailsActivity;
-import com.kiassasian.appasian.LoginActivity;
 import com.kiassasian.appasian.R;
 import com.kiassasian.appasian.models.CommonModels;
 
@@ -63,25 +62,12 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.Origin
         holder.lyt_parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (PreferenceUtils.isMandatoryLogin(ctx)){
-                    if (PreferenceUtils.isLoggedIn(ctx)){
-                        Intent intent=new Intent(ctx, DetailsActivity.class);
-                        intent.putExtra("vType",obj.getVideoType());
-                        intent.putExtra("id",obj.getId());
+                Intent intent=new Intent(ctx, DetailsActivity.class);
+                intent.putExtra("vType",obj.getVideoType());
+                intent.putExtra("id",obj.getId());
 
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        ctx.startActivity(intent);
-                    }else {
-                        ctx.startActivity(new Intent(ctx, LoginActivity.class));
-                    }
-                }else {
-                    Intent intent=new Intent(ctx, DetailsActivity.class);
-                    intent.putExtra("vType",obj.getVideoType());
-                    intent.putExtra("id",obj.getId());
-
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    ctx.startActivity(intent);
-                }
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                ctx.startActivity(intent);
 
             }
         });

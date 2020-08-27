@@ -135,10 +135,8 @@ import com.kiassasian.appasian.models.single_details.SingleDetails;
 import com.kiassasian.appasian.models.single_details.Subtitle;
 import com.kiassasian.appasian.models.single_details.Video;
 import com.kiassasian.appasian.network.RetrofitClient;
-import com.kiassasian.appasian.network.apis.CommentApi;
 import com.kiassasian.appasian.network.apis.FavouriteApi;
 import com.kiassasian.appasian.network.apis.SingleDetailsApi;
-import com.kiassasian.appasian.network.apis.SubscriptionApi;
 import com.kiassasian.appasian.network.model.ActiveStatus;
 import com.kiassasian.appasian.network.model.AdsConfig;
 import com.kiassasian.appasian.network.model.FavoriteModel;
@@ -179,7 +177,6 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
     public static RelativeLayout lPlay;
     private RelativeLayout contentDetails;
     private LinearLayout subscriptionLayout, topbarLayout;
-    private Button subscribeBt;
     private ImageView backIv, subBackIv;
 
     private ServerApater serverAdapter;
@@ -210,7 +207,6 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
     private boolean isFav = false;
     private TextView chromeCastTv;
     private ShimmerFrameLayout shimmerFrameLayout;
-    private Button btnComment;
     private EditText etComment;
     private CommentsAdapter commentsAdapter;
     private RelativeLayout adView;
@@ -347,9 +343,7 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
         rvRelated = findViewById(R.id.rv_related);
         tvRelated = findViewById(R.id.tv_related);
         shimmerFrameLayout = findViewById(R.id.shimmer_view_container);
-        btnComment = findViewById(R.id.btn_comment);
         etComment = findViewById(R.id.et_comment);
-        rvComment = findViewById(R.id.recyclerView_comment);
         llcomment = findViewById(R.id.llcomments);
         simpleExoPlayerView = findViewById(R.id.video_view);
         subtitleView = findViewById(R.id.subtitle);
@@ -389,7 +383,6 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
 
         contentDetails = findViewById(R.id.content_details);
         subscriptionLayout = findViewById(R.id.subscribe_layout);
-        subscribeBt = findViewById(R.id.subscribe_bt);
         backIv = findViewById(R.id.des_back_iv);
         subBackIv = findViewById(R.id.back_iv);
         topbarLayout = findViewById(R.id.topbar);
@@ -414,9 +407,7 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
             tvTopLayout.setBackgroundColor(getResources().getColor(R.color.black_window_light));
             sheduleLayout.setBackground(getResources().getDrawable(R.drawable.rounded_black_transparent));
             etComment.setBackground(getResources().getDrawable(R.drawable.round_grey_transparent));
-            btnComment.setTextColor(getResources().getColor(R.color.grey_20));
             topbarLayout.setBackgroundColor(getResources().getColor(R.color.dark));
-            subscribeBt.setBackground(getResources().getDrawable(R.drawable.btn_rounded_dark));
 
             descriptionContatainer.setBackground(getResources().getDrawable(R.drawable.gradient_black_transparent));
         }
@@ -466,12 +457,7 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
             imgAddFav.setVisibility(GONE);
         }
 
-        commentsAdapter = new CommentsAdapter(this, listComment);
-        rvComment.setLayoutManager(new LinearLayoutManager(this));
-        rvComment.setHasFixedSize(true);
-        rvComment.setNestedScrollingEnabled(false);
-        rvComment.setAdapter(commentsAdapter);
-        getComments();
+
         imgFull.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -499,20 +485,7 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
 
             }
         });
-        btnComment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!PreferenceUtils.isLoggedIn(DetailsActivity.this)) {
-                    startActivity(new Intent(DetailsActivity.this, LoginActivity.class));
-                    new ToastMsg(DetailsActivity.this).toastIconError(getString(R.string.login_first));
-                } else if (etComment.getText().toString().equals("")) {
-                    new ToastMsg(DetailsActivity.this).toastIconError(getString(R.string.comment_empty));
-                } else {
-                    String comment = etComment.getText().toString();
-                    addComment( id, PreferenceUtils.getUserId(DetailsActivity.this), comment);
-                }
-            }
-        });
+
 
         imgAddFav.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -810,20 +783,7 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
             }
         });
 
-        subscribeBt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                if (userId == null) {
-                    new ToastMsg(DetailsActivity.this).toastIconError(getResources().getString(R.string.subscribe_error));
-                    startActivity(new Intent(DetailsActivity.this, LoginActivity.class));
-                    finish();
-                } else {
-                    startActivity(new Intent(DetailsActivity.this, PurchasePlanActivity.class));
-                }
-
-            }
-        });
         backIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1528,66 +1488,9 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
 
     }
 
-    private void paidControl(String isPaid) {
-        if (isPaid.equals("1")) {
-            if (PreferenceUtils.isLoggedIn(DetailsActivity.this)) {
-                if (PreferenceUtils.isActivePlan(DetailsActivity.this)) {
-                    if (PreferenceUtils.isValid(DetailsActivity.this)) {
-                        contentDetails.setVisibility(VISIBLE);
-                        subscriptionLayout.setVisibility(GONE);
-                        Log.e("SUBCHECK", "validity: " + PreferenceUtils.isValid(DetailsActivity.this));
 
-                    } else {
-                        Log.e("SUBCHECK", "not valid");
-                        /*contentDetails.setVisibility(GONE);
-                        subscriptionLayout.setVisibility(VISIBLE);*/
-                        PreferenceUtils.updateSubscriptionStatus(DetailsActivity.this);
-                        //paidControl(isPaid);
-                    }
-                } else {
-                    Log.e("SUBCHECK", "not active plan");
-                    contentDetails.setVisibility(GONE);
-                    subscriptionLayout.setVisibility(VISIBLE);
-                }
-            }else {
-                startActivity(new Intent(DetailsActivity.this, FirebaseSignUpActivity.class));
-                finish();
-            }
 
-        } else {
-            //free content
-            contentDetails.setVisibility(VISIBLE);
-            subscriptionLayout.setVisibility(GONE);
-        }
-    }
 
-    private void getActiveStatus(String userId) {
-        Retrofit retrofit = RetrofitClient.getRetrofitInstance();
-        SubscriptionApi subscriptionApi = retrofit.create(SubscriptionApi.class);
-
-        Call<ActiveStatus> call = subscriptionApi.getActiveStatus(com.kiassasian.appasian.Config.API_KEY, userId);
-        call.enqueue(new Callback<ActiveStatus>() {
-            @Override
-            public void onResponse(Call<ActiveStatus> call, retrofit2.Response<ActiveStatus> response) {
-                ActiveStatus activeStatus = response.body();
-                if (!activeStatus.getStatus().equals("active")) {
-                    contentDetails.setVisibility(GONE);
-                    subscriptionLayout.setVisibility(VISIBLE);
-                } else {
-                    contentDetails.setVisibility(VISIBLE);
-                    subscriptionLayout.setVisibility(GONE);
-                }
-
-                PreferenceUtils.updateSubscriptionStatus(DetailsActivity.this);
-            }
-
-            @Override
-            public void onFailure(Call<ActiveStatus> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
-
-    }
 
     private void getTvData(final String vtype, final String vId) {
         String type = "?type=" + vtype;
@@ -1601,7 +1504,6 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
                 shimmerFrameLayout.stopShimmer();
                 shimmerFrameLayout.setVisibility(GONE);
                 try {
-                    paidControl(response.getString("is_paid"));
 
                     title = response.getString("tv_name");
                     tvName.setText(title);
@@ -1726,7 +1628,6 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
 
                     SingleDetails singleDetails = response.body();
                     String isPaid = singleDetails.getIsPaid();
-                    paidControl(isPaid);
 
                     title = singleDetails.getTitle();
                     sereisTitleTv.setText(title);
@@ -1932,7 +1833,6 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
                     swipeRefreshLayout.setRefreshing(false);
 
                     SingleDetails singleDetails = response.body();
-                    paidControl(singleDetails.getIsPaid());
                     Log.e("Download", "size: " + singleDetails.getDownloadLinks().size());
                     Log.e("Download", "size: " + singleDetails.getTitle());
                     download_check = singleDetails.getEnableDownload();
@@ -2152,54 +2052,9 @@ public class DetailsActivity extends AppCompatActivity implements CastPlayer.Ses
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    private void addComment(String videoId, String userId, final String comments) {
 
-        Retrofit retrofit = RetrofitClient.getRetrofitInstance();
-        CommentApi api = retrofit.create(CommentApi.class);
-        Call<PostCommentModel> call = api.postComment(Config.API_KEY, videoId, userId, comments);
-        call.enqueue(new Callback<PostCommentModel>() {
-            @Override
-            public void onResponse(Call<PostCommentModel> call, retrofit2.Response<PostCommentModel> response) {
-                if (response.body().getStatus().equals("success")){
-                    rvComment.removeAllViews();
-                    listComment.clear();
-                    getComments();
-                    etComment.setText("");
-                    new ToastMsg(DetailsActivity.this).toastIconSuccess(response.body().getMessage());
-                }else {
-                    new ToastMsg(DetailsActivity.this).toastIconError(response.body().getMessage());
-                }
-            }
 
-            @Override
-            public void onFailure(Call<PostCommentModel> call, Throwable t) {
 
-            }
-        });
-    }
-
-    private void getComments() {
-
-        Retrofit retrofit = RetrofitClient.getRetrofitInstance();
-        CommentApi api = retrofit.create(CommentApi.class);
-        Call<List<GetCommentsModel>> call = api.getAllComments(Config.API_KEY, id);
-        call.enqueue(new Callback<List<GetCommentsModel>>() {
-            @Override
-            public void onResponse(Call<List<GetCommentsModel>> call, retrofit2.Response<List<GetCommentsModel>> response) {
-                if (response.code() == 200) {
-                    listComment.addAll(response.body());
-
-                    commentsAdapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<GetCommentsModel>> call, Throwable t) {
-
-            }
-        });
-
-    }
 
     public void hideDescriptionLayout() {
         descriptionLayout.setVisibility(GONE);

@@ -822,21 +822,8 @@
                         android:hint="@string/your_comments"
                         android:layout_width="match_parent"
                         android:layout_height="70dp" />
-                    <Button
-                        android:id="@+id/btn_comment"
-                        android:layout_gravity="right"
-                        android:textColor="@color/colorPrimary"
-                        android:text="@string/add_comments"
-                        android:textAllCaps="false"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerView_comment"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
 
-                    </androidx.recyclerview.widget.RecyclerView>
 
                 </LinearLayout>
 

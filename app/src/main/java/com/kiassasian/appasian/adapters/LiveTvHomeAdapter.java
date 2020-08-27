@@ -11,12 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kiassasian.appasian.DetailsActivity;
-import com.kiassasian.appasian.LoginActivity;
 import com.kiassasian.appasian.R;
-import com.kiassasian.appasian.SubscriptionActivity;
 import com.kiassasian.appasian.models.CommonModels;
 import com.kiassasian.appasian.utils.ItemAnimation;
-import com.kiassasian.appasian.utils.PreferenceUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -58,34 +55,7 @@ public class LiveTvHomeAdapter extends RecyclerView.Adapter<LiveTvHomeAdapter.Or
         holder.lyt_parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //check app config data
-                //mandatory login enabled or not
-                if (PreferenceUtils.isMandatoryLogin(ctx)){
-                    if (PreferenceUtils.isLoggedIn(ctx)){
-                        if (obj.isPaid.equals("1")){
-                            if (PreferenceUtils.isActivePlan(ctx)){
-                                if (PreferenceUtils.isValid(ctx)){
-                                    playContent(obj);
-                                }else {
-                                    PreferenceUtils.updateSubscriptionStatus(ctx);
-                                }
-
-                             }else {
-                                //user doesnt have subscription
-                                ctx.startActivity(new Intent(ctx, SubscriptionActivity.class));
-                             }
-                        }else {
-                            //content is not paid
-                            playContent(obj);
-                        }
-
-                    }else {
-                        //user not logged in
-                        ctx.startActivity(new Intent(ctx, LoginActivity.class));
-                    }
-                }else {
-                    playContent(obj);
-                }
+                playContent(obj);
 
 
             }

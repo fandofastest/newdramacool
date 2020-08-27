@@ -32,8 +32,6 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity android:name="com.kiassasian.appasian.SearchActivity" />
-        <activity android:name="com.kiassasian.appasian.FirebaseSignUpActivity" />
-        <activity android:name="com.kiassasian.appasian.EventPaymentStripeActivity" />
 
         <activity
             android:name="com.kiassasian.appasian.TestActivity"
@@ -41,10 +39,6 @@
             android:theme="@style/AppTheme.Nobar" />
         <activity
             android:name="com.kiassasian.appasian.SearchFilterActivity"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/AppTheme.Nobar" />
-        <activity
-            android:name="com.kiassasian.appasian.PapalPaymentActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
@@ -74,23 +68,7 @@
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.kiassasian.appasian.ProfileActivity"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/AppTheme.Nobar" />
-        <activity
-            android:name="com.kiassasian.appasian.PassResetActivity"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/AppTheme.Nobar" />
-        <activity
             android:name="com.kiassasian.appasian.SearchResultActivity"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/AppTheme.Nobar" />
-        <activity
-            android:name="com.kiassasian.appasian.SignUpActivity"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/AppTheme.Nobar" />
-        <activity
-            android:name="com.kiassasian.appasian.LoginActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity
@@ -127,18 +105,6 @@
             android:theme="@style/AppTheme.Nobar" />
         <activity
             android:name="com.kiassasian.appasian.ItemSeriesActivity"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/AppTheme.Nobar" />
-        <activity
-            android:name="com.kiassasian.appasian.SubscriptionActivity"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/AppTheme.Nobar" />
-        <activity
-            android:name="com.kiassasian.appasian.StripePaymentActivity"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/AppTheme.Nobar" />
-        <activity
-            android:name="com.kiassasian.appasian.PurchasePlanActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.Nobar" />
         <activity

@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kiassasian.appasian.DetailsActivity;
-import com.kiassasian.appasian.LoginActivity;
 import com.kiassasian.appasian.R;
 import com.kiassasian.appasian.models.CommonModels;
 import com.kiassasian.appasian.utils.ItemAnimation;
@@ -56,16 +55,7 @@ public class LiveTVAdapter extends RecyclerView.Adapter<LiveTVAdapter.OriginalVi
         holder.lyt_parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (PreferenceUtils.isMandatoryLogin(ctx)){
-                    if (PreferenceUtils.isLoggedIn(ctx)){
-                        goToDetailsActivity(obj);
-                    }else {
-                        ctx.startActivity(new Intent(ctx, LoginActivity.class));
-                    }
-                }else {
-                    goToDetailsActivity(obj);
-                }
+                goToDetailsActivity(obj);
             }
         });
 

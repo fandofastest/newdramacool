@@ -337,12 +337,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 } else {
 
                     if (isLoginMandatory()) {
-                        Intent intent = new Intent(SplashScreenActivity.this, FirebaseSignUpActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent);
-                        finish();
+
                     } else {
 
                         Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
@@ -369,12 +364,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 } else {
 
                     if (isLoginMandatory()) {
-                        Intent intent = new Intent(SplashScreenActivity.this, FirebaseSignUpActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent);
-                        finish();
+
                     } else {
 
                         Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
@@ -416,12 +406,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 } else {
 
                     if (isLoginMandatory()) {
-                        Intent intent = new Intent(SplashScreenActivity.this, FirebaseSignUpActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent);
-                        finish();
+
                     } else {
 
                         Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
@@ -450,12 +435,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 } else {
 
                     if (isLoginMandatory()) {
-                                    Intent intent = new Intent(SplashScreenActivity.this, FirebaseSignUpActivity.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                                    startActivity(intent);
-                                    finish();
+
                     } else {
 
                                     Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
@@ -510,11 +490,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         } else {
 
             if (isLoginMandatory()) {
-                Intent intent = new Intent(SplashScreenActivity.this, FirebaseSignUpActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivity(intent);
+
                 finish();
             } else {
 

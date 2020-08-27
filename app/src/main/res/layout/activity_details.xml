@@ -62,35 +62,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_marginTop="150dp"
-            >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/paid_content"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:drawableLeft="@drawable/ic_info_blue"/>
-
-            <Button
-                android:id="@+id/subscribe_bt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/subscribe_text"
-                android:textColor="@color/white"
-                android:background="@drawable/btn_rounded_primary"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:textAllCaps="false"
-                android:layout_marginTop="15sp"/>
-
-        </LinearLayout>
 
     </LinearLayout>
 

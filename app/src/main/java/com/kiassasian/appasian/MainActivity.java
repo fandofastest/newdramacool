@@ -226,17 +226,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView.setHasFixedSize(true);
 
         status =  PreferenceUtils.isLoggedIn(this);
-        if (status){
-            PreferenceUtils.updateSubscriptionStatus(MainActivity.this);
-            for (int i = 0; i< navItemName.length; i++){
-                NavigationModel models =new NavigationModel(navItemImage[i], navItemName[i]);
-                list.add(models);
-            }
-        }else {
-            for (int i=0;i< navItemName2.length;i++){
-                NavigationModel models =new NavigationModel(navItemImage2[i],navItemName2[i]);
-                list.add(models);
-            }
+        for (int i=0;i< navItemName2.length;i++){
+            NavigationModel models =new NavigationModel(navItemImage2[i],navItemName2[i]);
+            list.add(models);
         }
 
 
@@ -271,72 +263,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     loadFragment(new CountryFragment());
                 }
                 else {
-                    if (status){
 
-                        if (position==5){
-                            Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
-                            startActivity(intent);
-                        }
-                        else if (position==6){
-                            loadFragment(new FavoriteFragment());
-                        }
-                        else if (position==7){
-                            Intent intent=new Intent(MainActivity.this, SubscriptionActivity.class);
-                            startActivity(intent);
-                        }
-                        else if (position==8){
-                            Intent intent=new Intent(MainActivity.this, DownloadActivity.class);
-                            startActivity(intent);
-                        }
-                        else if (position==9){
-                            Intent intent=new Intent(MainActivity.this,SettingsActivity.class);
-                            startActivity(intent);
-                        }
-                        else if (position==10){
-
-                            new AlertDialog.Builder(MainActivity.this).setMessage("Are you sure to logout ?")
-                                    .setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                                            if (user != null){
-                                                FirebaseAuth.getInstance().signOut();
-                                            }
-
-                                            SharedPreferences.Editor editor = getSharedPreferences(Constants.USER_LOGIN_STATUS, MODE_PRIVATE).edit();
-                                            editor.putBoolean(Constants.USER_LOGIN_STATUS, false);
-                                            editor.apply();
-                                            editor.commit();
-
-                                            DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
-                                            databaseHelper.deleteUserData();
-
-                                            PreferenceUtils.clearSubscriptionSavedData(MainActivity.this);
-
-                                            Intent intent = new Intent(MainActivity.this,FirebaseSignUpActivity.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }
-                                    })
-                                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            dialog.cancel();
-                                        }
-                                    }).create().show();
-                        }
-
-                    }else {
-                        if (position==5){
-                            Intent intent = new Intent(MainActivity.this, FirebaseSignUpActivity.class);
-                            startActivity(intent);
-                            finish();
-                        } else if (position==6){
-                            Intent intent=new Intent(MainActivity.this,SettingsActivity.class);
-                            startActivity(intent);
-                        }
-
-                    }
 
                 }
 

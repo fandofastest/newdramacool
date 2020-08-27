@@ -7,7 +7,6 @@ import android.util.Log;
 import com.kiassasian.appasian.Config;
 import com.kiassasian.appasian.database.DatabaseHelper;
 import com.kiassasian.appasian.network.RetrofitClient;
-import com.kiassasian.appasian.network.apis.SubscriptionApi;
 import com.kiassasian.appasian.network.model.ActiveStatus;
 
 import java.text.ParseException;
@@ -90,30 +89,7 @@ public class PreferenceUtils {
         return String.valueOf(db.getActiveStatusData().getExpireTime());
     }
 
-    public static void updateSubscriptionStatus(final Context context) {
-        //get saved user id
-        String userId = getUserId(context);
-        Retrofit retrofit = RetrofitClient.getRetrofitInstance();
-        SubscriptionApi subscriptionApi = retrofit.create(SubscriptionApi.class);
 
-        Call<ActiveStatus> call = subscriptionApi.getActiveStatus(Config.API_KEY, userId);
-        call.enqueue(new Callback<ActiveStatus>() {
-            @Override
-            public void onResponse(Call<ActiveStatus> call, Response<ActiveStatus> response) {
-                if (response.code() == 200) {
-                    ActiveStatus activeStatus = response.body();
-                    DatabaseHelper db = new DatabaseHelper(context);
-                    db.deleteAllActiveStatusData();
-                    db.insertActiveStatusData(activeStatus);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ActiveStatus> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
-    }
 
     public static void clearSubscriptionSavedData(Context context) {
         //now save to sharedPreference

@@ -17,7 +17,6 @@ import com.kiassasian.appasian.adapters.ReplyAdapter;
 import com.kiassasian.appasian.models.GetCommentsModel;
 import com.kiassasian.appasian.models.PostCommentModel;
 import com.kiassasian.appasian.network.RetrofitClient;
-import com.kiassasian.appasian.network.apis.CommentApi;
 import com.kiassasian.appasian.utils.PreferenceUtils;
 import com.kiassasian.appasian.utils.ApiResources;
 import com.kiassasian.appasian.utils.ToastMsg;
@@ -96,69 +95,14 @@ public class ReplyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (etComment.getText().toString().equals("")){
-
-                    new ToastMsg(ReplyActivity.this).toastIconError(getString(R.string.comment_empty));
-
-                }else {
-                    addComment(etComment.getText().toString());
-                }
-            }
-        });
-
-        getComments();
-    }
-
-
-    private void addComment(String comments){
-        String userId = PreferenceUtils.getUserId(ReplyActivity.this);
-        Retrofit retrofit = RetrofitClient.getRetrofitInstance();
-        CommentApi api = retrofit.create(CommentApi.class);
-        Call<PostCommentModel> call = api.postReply(Config.API_KEY, videoId, userId, comments, strCommentID);
-        call.enqueue(new Callback<PostCommentModel>() {
-            @Override
-            public void onResponse(Call<PostCommentModel> call, retrofit2.Response<PostCommentModel> response) {
-                if (response.body().getStatus().equals("success")){
-                    recyclerView.removeAllViews();
-                    list.clear();
-                    getComments();
-                    etComment.setText("");
-                    new ToastMsg(ReplyActivity.this).toastIconSuccess(response.body().getMessage());
-                }else {
-                    new ToastMsg(ReplyActivity.this).toastIconError(response.body().getMessage());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<PostCommentModel> call, Throwable t) {
-
+                new ToastMsg(ReplyActivity.this).toastIconError(getString(R.string.comment_empty));
             }
         });
 
     }
 
-    private void getComments(){
 
-        Retrofit retrofit = RetrofitClient.getRetrofitInstance();
-        CommentApi api = retrofit.create(CommentApi.class);
-        Call<List<GetCommentsModel>> call = api.getAllReply(Config.API_KEY, strCommentID);
-        call.enqueue(new Callback<List<GetCommentsModel>>() {
-            @Override
-            public void onResponse(Call<List<GetCommentsModel>> call, retrofit2.Response<List<GetCommentsModel>> response) {
-                if (response.code() == 200) {
-                    list.addAll(response.body());
 
-                    replyAdapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<GetCommentsModel>> call, Throwable t) {
-
-            }
-        });
-
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

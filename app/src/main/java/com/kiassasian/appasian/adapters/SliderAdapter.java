@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.github.islamkhsh.CardSliderAdapter;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.kiassasian.appasian.DetailsActivity;
-import com.kiassasian.appasian.LoginActivity;
 import com.kiassasian.appasian.R;
 import com.kiassasian.appasian.WebViewActivity;
 import com.kiassasian.appasian.models.home_content.Slide;
@@ -43,16 +42,12 @@ public class SliderAdapter extends CardSliderAdapter<Slide> {
                 public void onClick(View view) {
                     if (slide.getActionType().equalsIgnoreCase("tvseries") || slide.getActionType().equalsIgnoreCase("movie")){
                         if (PreferenceUtils.isMandatoryLogin(getContext())){
-                            if (PreferenceUtils.isLoggedIn(getContext())){
-                                Intent intent=new Intent(getContext(), DetailsActivity.class);
-                                intent.putExtra("vType",slide.getActionType());
-                                intent.putExtra("id",slide.getActionId());
+                            Intent intent=new Intent(getContext(), DetailsActivity.class);
+                            intent.putExtra("vType",slide.getActionType());
+                            intent.putExtra("id",slide.getActionId());
 
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                getContext().startActivity(intent);
-                            }else {
-                                getContext().startActivity(new Intent(getContext(), LoginActivity.class));
-                            }
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            getContext().startActivity(intent);
                         }else {
                             Intent intent=new Intent(getContext(), DetailsActivity.class);
                             intent.putExtra("vType",slide.getActionType());
@@ -76,25 +71,12 @@ public class SliderAdapter extends CardSliderAdapter<Slide> {
                         getContext().startActivity(browserIntent);
 
                     }else if (slide.getActionType().equalsIgnoreCase("tv")){
-                        if (PreferenceUtils.isMandatoryLogin(getContext())){
-                            if (PreferenceUtils.isLoggedIn(getContext())){
-                                Intent intent=new Intent(getContext(), DetailsActivity.class);
-                                intent.putExtra("vType",slide.getActionType());
-                                intent.putExtra("id",slide.getActionId());
+                        Intent intent=new Intent(getContext(), DetailsActivity.class);
+                        intent.putExtra("vType",slide.getActionType());
+                        intent.putExtra("id",slide.getActionId());
 
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                getContext().startActivity(intent);
-                            }else {
-                                getContext().startActivity(new Intent(getContext(), LoginActivity.class));
-                            }
-                        }else {
-                            Intent intent=new Intent(getContext(), DetailsActivity.class);
-                            intent.putExtra("vType",slide.getActionType());
-                            intent.putExtra("id",slide.getActionId());
-
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            getContext().startActivity(intent);
-                        }
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        getContext().startActivity(intent);
                     }
                 }
             });

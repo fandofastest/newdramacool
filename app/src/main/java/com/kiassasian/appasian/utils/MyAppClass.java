@@ -16,7 +16,6 @@ import com.kiassasian.appasian.Config;
 import com.kiassasian.appasian.NotificationClickHandler;
 import com.kiassasian.appasian.database.DatabaseHelper;
 import com.kiassasian.appasian.network.RetrofitClient;
-import com.kiassasian.appasian.network.apis.SubscriptionApi;
 import com.kiassasian.appasian.network.model.ActiveStatus;
 import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
@@ -72,7 +71,7 @@ public class MyAppClass extends Application {
         // fetched and save the user active status if user is logged in
         String userId = PreferenceUtils.getUserId(this);
         if (userId != null && !userId.equals("")) {
-            updateActiveStatus(userId);
+
         }
 
         // Initialize the Audience Network SDK
@@ -151,29 +150,7 @@ public class MyAppClass extends Application {
         return mContext;
     }
 
-    private void updateActiveStatus(String userId) {
-        Retrofit retrofit = RetrofitClient.getRetrofitInstance();
-        SubscriptionApi subscriptionApi = retrofit.create(SubscriptionApi.class);
 
-        Call<ActiveStatus> call = subscriptionApi.getActiveStatus(Config.API_KEY, userId);
-        call.enqueue(new Callback<ActiveStatus>() {
-            @Override
-            public void onResponse(Call<ActiveStatus> call, Response<ActiveStatus> response) {
-                if (response.code() == 200) {
-                    ActiveStatus activeStatus = response.body();
-                    DatabaseHelper db = new DatabaseHelper(getApplicationContext());
-                    db.deleteAllActiveStatusData();
-                    db.insertActiveStatusData(activeStatus);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ActiveStatus> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
-
-    }
 
 
 }
